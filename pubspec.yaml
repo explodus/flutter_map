@@ -5,13 +5,13 @@ repository: https://github.com/johnpryan/flutter_map
 
 environment:
   sdk: ">=2.7.0 <3.0.0"
-  flutter: ">=2.0.0"
+  #flutter: ">=2.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
   tuple: ^1.0.2
-  latlong: ^0.6.1
+  latlong: ^0.1.0-nullsafety.0
   positioned_tap_detector_2: ^1.0.0
   transparent_image: ^1.0.0
   async: ^2.1.0
