@@ -5,12 +5,12 @@ import '../pages/circle.dart';
 import '../pages/custom_crs/custom_crs.dart';
 import '../pages/esri.dart';
 import '../pages/home.dart';
+import '../pages/interactive_test_page.dart';
 import '../pages/live_location.dart';
 import '../pages/map_controller.dart';
 import '../pages/marker_anchor.dart';
 import '../pages/moving_markers.dart';
 import '../pages/offline_map.dart';
-import '../pages/offline_mbtiles_map.dart';
 import '../pages/on_tap.dart';
 import '../pages/overlay_image.dart';
 import '../pages/plugin_api.dart';
@@ -19,6 +19,7 @@ import '../pages/plugin_zoombuttons.dart';
 import '../pages/polyline.dart';
 import '../pages/sliding_map.dart';
 import '../pages/tap_to_add.dart';
+import '../pages/tile_builder_example.dart';
 import '../pages/tile_loading_error_handle.dart';
 import '../pages/widgets.dart';
 import '../pages/wms_tile_layer.dart';
@@ -129,12 +130,6 @@ Drawer buildDrawer(BuildContext context, String currentRoute) {
         ),
         _buildMenuItem(
           context,
-          const Text('Offline Map (using MBTiles)'),
-          OfflineMBTilesMapPage.route,
-          currentRoute,
-        ),
-        _buildMenuItem(
-          context,
           const Text('OnTap'),
           OnTapPage.route,
           currentRoute,
@@ -157,33 +152,41 @@ Drawer buildDrawer(BuildContext context, String currentRoute) {
           OverlayImagePage.route,
           currentRoute,
         ),
-        ListTile(
-          title: const Text('Sliding Map'),
-          selected: currentRoute == SlidingMapPage.route,
-          onTap: () =>
-              Navigator.pushReplacementNamed(context, SlidingMapPage.route),
+        _buildMenuItem(
+          context,
+          const Text('Sliding Map'),
+          SlidingMapPage.route,
+          currentRoute,
         ),
-        ListTile(
-          title: const Text('Widgets'),
-          selected: currentRoute == WidgetsPage.route,
-          onTap: () {
-            Navigator.pushReplacementNamed(context, WidgetsPage.route);
-          },
+        _buildMenuItem(
+          context,
+          const Text('Widgets'),
+          WidgetsPage.route,
+          currentRoute,
         ),
-        ListTile(
-          title: const Text('Live Location Update'),
-          selected: currentRoute == LiveLocationPage.route,
-          onTap: () {
-            Navigator.pushReplacementNamed(context, LiveLocationPage.route);
-          },
+        _buildMenuItem(
+          context,
+          const Text('Live Location Update'),
+          LiveLocationPage.route,
+          currentRoute,
         ),
-        ListTile(
-          title: const Text('Tile loading error handle'),
-          selected: currentRoute == TileLoadingErrorHandle.route,
-          onTap: () {
-            Navigator.pushReplacementNamed(
-                context, TileLoadingErrorHandle.route);
-          },
+        _buildMenuItem(
+          context,
+          const Text('Tile loading error handle'),
+          TileLoadingErrorHandle.route,
+          currentRoute,
+        ),
+        _buildMenuItem(
+          context,
+          const Text('Tile builder'),
+          TileBuilderPage.route,
+          currentRoute,
+        ),
+        _buildMenuItem(
+          context,
+          const Text('Interactive flags test page'),
+          InteractiveTestPage.route,
+          currentRoute,
         ),
       ],
     ),
